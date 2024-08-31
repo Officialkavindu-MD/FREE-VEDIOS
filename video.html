@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Playing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="video-title">Video Title</h1>
+    </header>
+    <main>
+        <video controls width="100%">
+            <source src="videos/video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="video-description">Video description goes here.</div>
+    </main>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const title = urlParams.get('title');
+        const desc = urlParams.get('desc');
+
+        // Update video title and description
+        document.getElementById('video-title').textContent = title.replace('+', ' ');
+        document.getElementById('video-description').textContent = desc.replace('+', ' ');
+    </script>
+</body>
+</html>
