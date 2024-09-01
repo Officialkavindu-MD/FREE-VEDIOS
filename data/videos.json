@@ -1,0 +1,17 @@
+{
+  "videos": [
+    {
+      "title": "Video 1",
+      "description": "This is Video 1",
+      "thumbnail": "thumbnails/video1.png",
+      "videoUrl": "videos/video1.mp4"
+    },
+    {
+      "title": "Video 2",
+      "description": "This is Video 2",
+      "thumbnail": "thumbnails/video2.png",
+      "videoUrl": "videos/video2.mp4"
+    }
+    // Add more video objects as needed
+  ]
+}
