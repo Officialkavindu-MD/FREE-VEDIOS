@@ -11,8 +11,7 @@
         <h1 id="video-title">Video Title</h1>
     </header>
     <main>
-        <video controls width="100%">
-            <source src="videos/video1.mp4" type="video/mp4">
+        <video id="videoPlayer" width="100%" preload="auto" controls>
             Your browser does not support the video tag.
         </video>
         <div id="video-description">Video description goes here.</div>
@@ -23,10 +22,22 @@
         const urlParams = new URLSearchParams(window.location.search);
         const title = urlParams.get('title');
         const desc = urlParams.get('desc');
+        const videoUrl = urlParams.get('videoUrl');
 
-        // Update video title and description
+        // Update video title, description, and source
         document.getElementById('video-title').textContent = title.replace('+', ' ');
         document.getElementById('video-description').textContent = desc.replace('+', ' ');
+
+        const videoPlayer = document.getElementById('videoPlayer');
+        const source = document.createElement('source');
+        source.src = videoUrl;
+        source.type = 'video/mp4';
+        videoPlayer.appendChild(source);
+
+        // Autoplay the video after it is loaded
+        videoPlayer.addEventListener('canplay', function() {
+            videoPlayer.play();
+        });
     </script>
 </body>
 </html>
